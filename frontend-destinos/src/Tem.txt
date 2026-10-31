@@ -1,0 +1,190 @@
+
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+ 
+import "swiper/css";
+
+import "swiper/css/navigation";
+
+import "swiper/css/pagination";
+ 
+import "./Galeria.css";
+ 
+const destinos = [
+
+  {
+
+    nombre: "Cartagena",
+
+    descripcion: "Historia, murallas y playas del Caribe.",
+
+    imagen: "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=900"
+
+  },
+
+  {
+
+    nombre: "Paisajes naturales",
+
+    descripcion: "Descubre la belleza de nuestras montañas.",
+
+    imagen: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=900"
+
+  },
+
+  {
+
+    nombre: "Aventura",
+
+    descripcion: "Explora nuevos caminos y experiencias.",
+
+    imagen: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900"
+
+  },
+
+  {
+
+    nombre: "Naturaleza",
+
+    descripcion: "Conecta con la riqueza natural de Colombia.",
+
+    imagen: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=900"
+
+  }
+
+];
+ 
+function Galeria() {
+
+  return (
+<section className="container my-5">
+ 
+      <h2 className="text-center mb-3">
+
+        Explora nuestros destinos
+</h2>
+ 
+      <p className="text-center mb-4">
+
+        Colombia tiene lugares maravillosos por descubrir.
+</p>
+ 
+      <Swiper
+
+        modules={[Navigation, Pagination, Autoplay]}
+
+        spaceBetween={20}
+
+        slidesPerView={1}
+
+        navigation
+
+        pagination={{ clickable: true }}
+
+        autoplay={{
+
+          delay: 3000,
+
+          disableOnInteraction: false
+
+        }}
+
+        breakpoints={{
+
+          768: {
+
+            slidesPerView: 2
+
+          },
+
+          992: {
+
+            slidesPerView: 3
+
+          }
+
+        }}
+>
+ 
+        {destinos.map((destino) => (
+<SwiperSlide key={destino.nombre}>
+<div className="card tarjeta-destino h-100">
+ 
+              <img
+
+                src={destino.imagen}
+
+                className="card-img-top imagen-destino"
+
+                alt={destino.nombre}
+
+                loading="lazy"
+
+              />
+ 
+              <div className="card-body text-center">
+<h3 className="card-title h5">
+
+                  {destino.nombre}
+</h3>
+ 
+                <p className="card-text">
+
+                  {destino.descripcion}
+</p>
+ 
+                <button className="btn btn-success">
+
+                  Conocer más
+</button>
+</div>
+ 
+            </div>
+</SwiperSlide>
+
+        ))}
+ 
+      </Swiper>
+ 
+    </section>
+
+  );
+
+}
+ 
+export default Galeria;
+
+ 
+enEn galeria css
+
+pwd
+git status
+
+Revisar que no subas node_modules
+cat .gitignore
+ 
+
+ Iniciar Git
+git init
+git branch -M main
+
+Guardar el commit
+git add .
+git commit -m "Primer commit"   
+
+crear repositorio
+gh repo create NOMBRE --public --source=. --remote=origin --push
+
+
+Comprobar
+git remote -v
+gh repo view --web
+
+
+git add .
+git commit -m "Describe lo que cambiaste"
+git push
+
+ npm run build

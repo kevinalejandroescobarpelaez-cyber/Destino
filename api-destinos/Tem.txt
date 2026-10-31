@@ -1,0 +1,29 @@
+// PUT: actualizar un destino completo
+app.put("/api/destinos/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const { nombre, departamento } = req.body;
+
+  const destino = destinos.find(d => d.id === id);
+
+  if (!destino) {
+    return res.status(404).json({
+      mensaje: "Destino no encontrado"
+    });
+  }
+
+  if (
+    typeof nombre !== "string" ||
+    !nombre.trim() ||
+    typeof departamento !== "string" ||
+    !departamento.trim()
+  ) {
+    return res.status(400).json({
+      mensaje: "Debes enviar nombre y departamento"
+    });
+  }
+
+  destino.nombre = nombre.trim();
+  destino.departamento = departamento.trim();
+
+  res.json(destino);
+});
