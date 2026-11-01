@@ -173,10 +173,11 @@ git branch -M main
 Guardar el commit
 git add .
 git commit -m "Primer commit"   
+ 
 
 crear repositorio
 gh repo create NOMBRE --public --source=. --remote=origin --push
-
+gh repo create Destino --public --source=. --remote=origin --push
 
 Comprobar
 git remote -v
